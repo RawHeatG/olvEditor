@@ -1,23 +1,45 @@
+import FormatBoldIcon from "@material-ui/icons/FormatBold";
+import FormatItalicIcon from "@material-ui/icons/FormatItalic";
+import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined";
+
 export const TextStyleButtons = ({ editor }) => {
   return (
-    <div>
+    <div className="flex">
       <button
         className=""
         onClick={() => editor.chain().focus().toggleBold().run()}
       >
-        Bold
+        <FormatBoldIcon
+          style={{
+            width: "3rem",
+            height: "3rem",
+            color: "#ec4899",
+          }}
+        />
       </button>
       <button
         className=""
-        onClick={() => editor.chain().focus().toggleBold().run()}
+        onClick={() => editor.chain().focus().toggleItalic().run()}
       >
-        Italic
+        <FormatItalicIcon
+          style={{
+            width: "3rem",
+            height: "3rem",
+            color: "#ec4899",
+          }}
+        />
       </button>
       <button
         className=""
-        onClick={() => editor.chain().focus().toggleBold().run()}
+        onClick={() => editor.chain().focus().toggleUnderline().run()}
       >
-        Underline
+        <FormatUnderlinedIcon
+          style={{
+            width: "3rem",
+            height: "3rem",
+            color: "#ec4899",
+          }}
+        />
       </button>
     </div>
   );

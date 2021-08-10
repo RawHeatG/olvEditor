@@ -1,14 +1,28 @@
 @tailwind base;
-body {
-  --color-primary: #ec4899;
-  --color-seconadry: #363472;
-}
 
 .ProseMirror {
-  min-height: 90vh;
-  padding: 1rem 0 3rem;
+  min-height: 70vh;
+  padding: 3rem 1rem 1rem 1rem;
   border: none;
   outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: "What's popin...";
+  float: left;
+  color: #ff99bb;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror img {
+  margin: 1rem;
+}
+
+.ProseMirror a {
+  color: #ec4899;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @tailwind components;

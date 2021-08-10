@@ -1,9 +1,9 @@
-import { Editor } from "./components/Editor";
+import { Navbar, Editor } from "./components";
 
 function App() {
   return (
-    <div className="w-screen h-screen">
-      <h1>Hello diary...</h1>
+    <div className="">
+      <Navbar />
       <Editor />
     </div>
   );

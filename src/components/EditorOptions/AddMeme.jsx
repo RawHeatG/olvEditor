@@ -1,4 +1,5 @@
 import { fetchMeme } from "../../services/memeService";
+import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 
 export const AddMeme = ({ editor }) => {
   //fetch the meme from the API
@@ -7,7 +8,6 @@ export const AddMeme = ({ editor }) => {
       const {
         data: { results },
       } = await fetchMeme(memeQuerry);
-      //   console.log(results);
       return results[0].media[0].gif.url;
     } catch (error) {
       alert("Error while fetching MEME");
@@ -20,15 +20,11 @@ export const AddMeme = ({ editor }) => {
       let editorContent = editor.getHTML();
       const memeRegex = /\{\{(.+?)_meme\}\}/;
       const [wholeMemeWord, memeQuerry] = editorContent.match(memeRegex);
-
-      //   console.log(memeQuerry);
       const memeURL = await getMeme(memeQuerry);
-      //   console.log(memeURL);
       console.log(wholeMemeWord);
       if (memeURL) {
         editorContent = editorContent.replace(wholeMemeWord, "");
-        const newEditorContent =
-          editorContent + `<img className="p-4" src="${memeURL}" />`;
+        const newEditorContent = editorContent + `<img src="${memeURL}" />`;
 
         console.log(newEditorContent);
         editor.commands.setContent(newEditorContent);
@@ -41,7 +37,15 @@ export const AddMeme = ({ editor }) => {
 
   return (
     <div>
-      <button onClick={setMeme}>Add Meme</button>
+      <button onClick={setMeme}>
+        <EmojiEmotionsIcon
+          style={{
+            width: "3rem",
+            height: "3rem",
+            color: "#ec4899",
+          }}
+        />
+      </button>
     </div>
   );
 };
